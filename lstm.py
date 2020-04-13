@@ -40,7 +40,7 @@ class LSTM:
         print(model.summary())
 
         batch_size = 12
-        epochs = 500
+        epochs = 100
         reduce_lr_acc = ReduceLROnPlateau(monitor='val_loss', factor=0.9, patience=epochs / 10, verbose=1, min_delta=1e-4, mode='max')
         model.fit(X_train, Y_train,
                   epochs=epochs,

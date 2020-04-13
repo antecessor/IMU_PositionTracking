@@ -7,15 +7,19 @@ from lstm import LSTM
 data = pd.read_excel("data.xlsx")
 data = data.values
 
-a = np.diff(data[:, range(2, 4)], axis=0)
+
+
 # data = scale(data, axis=0)
 
+a = np.diff(data[:, range(3, 5)], axis=0)
 step = 25
 input = []
 target = []
 for i in range(step, a.shape[0]):
     input.append(a[range(i - step, i - 1), :])
-    target.append(data[i, [0, 1]])
+    target.append(data[i, [1, 2]])
+
+
 
 lstm = LSTM()
 lstm.Train(input, target)
